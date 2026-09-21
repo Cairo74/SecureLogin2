@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Usuário | PUC Minas</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+    <div class="split-card home-card">
+        <!-- Topo com fundo do campus e logo da PUC Minas -->
+        <div class="home-header">
+            <img th:src="@{/images/puc-minas-logo.png}" alt="PUC Minas" class="puc-logo">
+            <h2 style="font-size: 18px; font-weight: 500; margin-top: 6px;">Portal do Usuário</h2>
+        </div>
+
+        <!-- Conteúdo com os dados do usuário autenticado -->
+        <div class="home-body">
+            <span class="home-user-badge">Sessão Autenticada</span>
+
+            <div class="user-info-row">
+                <span class="user-info-label">Nome:</span>
+                <span class="user-info-val" th:if="${usuario != null}" th:text="${usuario.nome}">Aluno PUC</span>
+                <span class="user-info-val" th:unless="${usuario != null}" th:text="${nomeIdentificador}">Aluno</span>
+            </div>
+
+            <div class="user-info-row">
+                <span class="user-info-label">Username:</span>
+                <span class="user-info-val" th:if="${usuario != null}" th:text="${usuario.username}">-</span>
+                <span class="user-info-val" th:unless="${usuario != null}" th:text="${nomeIdentificador}">-</span>
+            </div>
+
+            <div class="user-info-row">
+                <span class="user-info-label">E-mail:</span>
+                <span class="user-info-val" th:if="${usuario != null}" th:text="${usuario.email}">-</span>
+                <span class="user-info-val" th:unless="${usuario != null}">-</span>
+            </div>
+
+            <!-- Formulário de Logout -->
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="btn-logout">Encerrar Sessão (Sair)</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,367 @@
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* ===== ANIMAÇÃO DE ENTRADA SUAVE ===== */
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== CONTAINER DO CARTÃO DIVIDIDO (SPLIT CARD) ===== */
+.split-card {
+  display: flex;
+  width: 100%;
+  max-width: 960px;
+  min-height: 540px;
+  background-color: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e2e8f0;
+  animation: fadeInCard 0.4s ease-out;
+}
+
+/* ===== LADO ESQUERDO (CAMPUS PUC MINAS COM OVERLAY AZUL) ===== */
+.panel-left {
+  flex: 1;
+  background: linear-gradient(135deg, rgba(51, 110, 178, 0.78), rgba(27, 68, 120, 0.88)), url('../images/campus-puc.jpg') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.panel-left:hover {
+  background-size: 105%;
+}
+
+.puc-logo {
+  max-width: 190px;
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.45));
+  transition: transform 0.3s ease;
+}
+
+.puc-logo:hover {
+  transform: scale(1.04);
+}
+
+.campus-caption {
+  margin-top: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 4px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ===== LADO DIREITO (FORMULÁRIO BRANCO) ===== */
+.panel-right {
+  flex: 1;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 32px;
+}
+
+.form-box {
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+}
+
+/* Título */
+.form-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 24px;
+}
+
+/* Campos de entrada */
+.input-group {
+  margin-bottom: 14px;
+  text-align: left;
+  position: relative;
+}
+
+.input-field {
+  width: 100%;
+  padding: 11px 14px;
+  font-size: 14px;
+  color: #1f2937;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-field::placeholder {
+  color: #9ca3af;
+}
+
+.input-field:focus {
+  border-color: #336eb2;
+  box-shadow: 0 0 0 3px rgba(51, 110, 178, 0.18);
+}
+
+/* Campo com botão de toggle de senha */
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-container .input-field {
+  padding-right: 40px;
+}
+
+.btn-toggle-eye {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  transition: color 0.2s;
+}
+
+.btn-toggle-eye:hover {
+  color: #4b5563;
+}
+
+/* Botão Azul de Ação (Entrar / Cadastrar / Enviar) */
+.btn-action {
+  width: 100%;
+  padding: 11px 16px;
+  background-color: #336eb2;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+.btn-action:hover {
+  background-color: #2b619e;
+  box-shadow: 0 4px 12px rgba(51, 110, 178, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-action:active {
+  transform: translateY(0);
+}
+
+/* Textos e Links do Rodapé */
+.footer-text {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.footer-links {
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+.link-cadastre {
+  color: #336eb2;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.link-cadastre:hover {
+  color: #1e4e8c;
+}
+
+.link-divider {
+  color: #9ca3af;
+  margin: 0 4px;
+}
+
+.link-esqueci {
+  color: #e06d28;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.link-esqueci:hover {
+  color: #c45415;
+}
+
+/* ===== MENSAGENS DE ALERTA (ERRO E SUCESSO) ===== */
+.alert-box {
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-bottom: 18px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.alert-error {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+}
+
+.alert-success {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #16a34a;
+}
+
+/* Dica de teste rápido para os avaliadores */
+.demo-hint {
+  margin-top: 22px;
+  font-size: 11.5px;
+  color: #6b7280;
+  background-color: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.demo-hint code {
+  color: #336eb2;
+  font-weight: 600;
+}
+
+/* ===== TELA HOME (DASHBOARD AUTENTICADO) ===== */
+.home-card {
+  max-width: 580px;
+  min-height: auto;
+  flex-direction: column;
+  text-align: center;
+}
+
+.home-header {
+  background: linear-gradient(135deg, rgba(51, 110, 178, 0.85), rgba(27, 68, 120, 0.92)), url('../images/campus-puc.jpg') center/cover no-repeat;
+  padding: 28px 24px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-header .puc-logo {
+  max-width: 130px;
+  margin-bottom: 12px;
+}
+
+.home-body {
+  padding: 32px 28px;
+}
+
+.home-user-badge {
+  display: inline-block;
+  background-color: #e0f2fe;
+  color: #0369a1;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.user-info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 14px;
+}
+
+.user-info-label {
+  color: #64748b;
+}
+
+.user-info-val {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.btn-logout {
+  width: 100%;
+  margin-top: 24px;
+  background-color: #dc2626;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 11px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-logout:hover {
+  background-color: #b91c1c;
+}
+
+/* ===== RESPONSIVIDADE PARA CELULAR / TABLET ===== */
+@media (max-width: 768px) {
+  .split-card {
+    flex-direction: column;
+    max-width: 440px;
+    min-height: auto;
+  }
+
+  .panel-left {
+    padding: 30px 20px;
+    min-height: 180px;
+  }
+
+  .puc-logo {
+    max-width: 140px;
+  }
+
+  .panel-right {
+    padding: 32px 20px;
+  }
+}
